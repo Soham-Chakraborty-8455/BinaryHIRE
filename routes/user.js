@@ -25,5 +25,13 @@ router.post('/freelancer', (req, res)=>{
     })
 })
 
+Freelancer.findOne({name: "Soham Chakraborty" }, function (err, docs) {
+    if (err){
+        console.log(err)
+    }
+    else{
+        console.log("Result : ", docs);
+    }
+});
 
 module.exports = router
