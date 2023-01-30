@@ -13,7 +13,7 @@ router.use('/freelancer', (req, res, next)=>{
     const phone= req.body.phone
     const password = req.body.password
     const skills= req.body.skills
-    const freelancerData=new Freelancer({name:name,email:email, phone:phone, password:password, skills:skills})
+    const freelancerData= new Freelancer({name:name,email:email, phone:phone, password:password, skills:skills})
     freelancerData.save().then(request=>{
         console.log("Uploaded Successfully")
     }).catch(err=>{
