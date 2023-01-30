@@ -2,12 +2,16 @@ const express= require('express')
 const bodyParser = require('body-parser')
 const Freelancer= require('../model/database')
 const path= require('path')
-const { query } = require('express')
+const { query, request } = require('express')
 const router = express.Router()
 router.use(bodyParser.json())
 
-router.use('/freelancer', (req, res, next)=>{
+router.get('/freelancer', (req, res, next)=>{
     res.sendFile(path.join(__dirname,'../','public','freelancer.html'))
+    
+})
+
+router.post('/freelancer', (req, res)=>{
     const name= req.body.name
     const email= req.body.email
     const phone= req.body.phone
