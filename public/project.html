@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <h2 style="text-align: center">Form</h2>
+    <div>
+        <div class="mb-3">
+            <label for="projectname" class="form-label">Name of the Project</label>
+            <input type="projectname" name="name" id="projectname" required />
+        </div>
+        <div class="mb-3">
+            <label for="projectdesc" class="form-label">Project Description</label>
+            <textarea type="text" name="" minlength="30" id="projectdesc" required></textarea>
+        </div>
+        <div class="mb-3">
+            <label for="skills" class="form-label">Skills</label>
+            <textarea type="text" name="" minlength="30" id="skills" required></textarea>
+        </div>
+        <div class="mb-3">
+            <label for="rate" class="form-label">Rate</label>
+            <input type="text" name="" minlength="30" id="rate" required />
+        </div>
+        <button id="button2">Submit</button>
+        <script>
+            const btn = document.getElementById('button2')
+            btn.onclick = function () {
+                fetchData();
+            }
+            const fetchData = async () => {
+                const projectname = document.getElementById('projectname').value
+                const projectdesc = document.getElementById('projectdesc').value
+                const rate = document.getElementById('rate').value
+                const skills = document.getElementById('skills').value;
+                // const skillsArray = String(skills).split(' ').trim()
+
+                console.log({
+                    projectname,
+                    projectdesc,
+                    skills,
+                    rate
+                })
+
+                const Response = await fetch('/newproject', {
+                    method: 'POST',
+                    body: JSON.stringify({
+                        projectname,
+                        projectdesc,
+                        skills,
+                        rate
+                    }),
+                    headers: {
+                        "content-type": "application/json",
+                    },
+
+                })
+            }
+        </script>
+</body>
+
+
+</html>
