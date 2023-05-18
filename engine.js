@@ -12,7 +12,7 @@ app.use(user)
 app.use(query)
 
 mongoose.set("strictQuery", false)
-mongoose.connect('mongodb+srv://Koffee:KoffeeKoders%4015_16@cluster0.jss4yda.mongodb.net/binaryHire').then(
+mongoose.connect(process.env.MONGO).then(
   result=>{
     app.listen(3005);
   }
